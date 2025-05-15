@@ -140,7 +140,7 @@ node analyze.js
 
 ## Cleanup
 
-Stop and remove MongoDB container:
+If needed manually, stop and remove the Docker container:
 
 ```bash
 docker-compose down

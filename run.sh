@@ -14,8 +14,11 @@ MONGO_URI="${MONGO_URI:-mongodb://localhost:27017}"
 
 echo "Using Mongo URI: $MONGO_URI"
 
+IS_LOCAL=false
+
 # Start MongoDB locally only if using localhost URI
 if [[ "$MONGO_URI" == "mongodb://localhost:27017" ]]; then
+  IS_LOCAL=true
   echo "Starting MongoDB via Docker..."
   docker-compose up -d
 
@@ -41,5 +44,11 @@ fi
 
 echo "Running analysis..."
 node analyze.js
+
+# Shut down Docker container if we started it
+if [ "$IS_LOCAL" = true ]; then
+  echo "Shutting down MongoDB Docker container..."
+  docker-compose down
+fi
 
 echo "All done!"
