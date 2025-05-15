@@ -1,0 +1,13 @@
+{
+  "name": "hedera-tx-analysis",
+  "version": "1.0.0",
+  "description": "Transaction analysis on Hedera JSON data",
+  "main": "import.js",
+  "scripts": {
+    "start": "bash run.sh sample.json"
+  },
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "mongodb": "^6.16.0"
+  }
+}
